@@ -11,6 +11,7 @@ public class AugmentAVLTree {
     private AugmentNode root;
     private int sumOfSmaller;
     private int keyOfRoot;
+    private boolean isSmaller;
 
     private class AugmentNode {
         private int key;
@@ -38,15 +39,15 @@ public class AugmentAVLTree {
         else {
             AugmentNode n = root;
             AugmentNode parent = null;
-            boolean goLeft = false;
+            boolean goLeft;
             boolean sideRight = root.key < key ? true : false;
             boolean flag;
+
             while (true) {
                 if (n.key == key)
                     return false;
 
                 parent = n;
-
                 goLeft = n.key > key;
                 n = goLeft ? n.left : n.right;
 
@@ -70,6 +71,7 @@ public class AugmentAVLTree {
 
                     }
                     augment2(root, key);
+                    isSmaller = false;
                     rebalance(parent);
                     break;
                 }
@@ -239,12 +241,15 @@ public class AugmentAVLTree {
 
     private void augment2(AugmentNode r, int key) {
         if (r != null) {
-            augment(r.right);
-            if (key > r.key)
+            if (r.key == key)
+                isSmaller = true;
+            if (isSmaller)
                 return;
+            augment2(r.right,key);
             r.augment += key;
-            augment(r.left);
+            augment2(r.left,key);
         }
+
     }
 
     private void iterativeAugment(AugmentNode node) {

@@ -19,7 +19,7 @@ public class AVLTreeTest {
         System.out.println("All items were inserted.");
         System.out.format("The time elapsed for the insertion of all items is %f nanoseconds\n", ((end - start) / 1000000000.0));
 
-        System.out.println("The result of GETSUMSMALLER for the item with value 100" + " is " + tree.getSumSmaller(tree.search(100)));
+        //System.out.println("The result of GETSUMSMALLER for the item with value 1008" + " is " + tree.getSumSmaller(tree.search(1008)));
         System.out.println("The maximum value of all items is " + tree.getMax());
         System.out.println("The minimum value of all items is " + tree.getMin());
 
@@ -34,15 +34,15 @@ public class AVLTreeTest {
 
 
         start = System.nanoTime();
-        for (int i = 3000; i > 0; i--) {
+        for (int i = 10; i > 0; i--) {
             augtree.insert(i);
             //System.out.println(i);
         }
         end = System.nanoTime();
         System.out.println("All items were inserted.");
-        System.out.format("The time elapsed for the insertion of all items is %f nanoseconds\n", ((double) (end - start) / 1000000000.0));
+        System.out.format("The time elapsed for the insertion of all items is %f nanoseconds\n", ((end - start) / 1000000000.0));
 
-        //System.out.println("The result of GETSUMSMALLER for the item with value 100" + " is " + augtree.getSumSmaller(augtree.search(100)));
+        //System.out.println("The result of GETSUMSMALLER for the item with value 1008" + " is " + augtree.getSumSmaller(augtree.search(1008)));
         System.out.println("The maximum value of all items is " + augtree.getMax());
         System.out.println("The minimum value of all items is " + augtree.getMin());
 
@@ -50,7 +50,7 @@ public class AVLTreeTest {
         sum = augtree.getAllSumAugment();
         end = System.nanoTime();
         System.out.println("The summation of all items is " + sum);
-        System.out.format("The time elapsed for GETSUM is %f nanoseconds\n", ((double) (end - start) / 1000000000.0));
+        System.out.format("The time elapsed for GETSUM is %f nanoseconds\n", ((end - start) / 1000000000.0));
         augtree.inorder();
 
     }
