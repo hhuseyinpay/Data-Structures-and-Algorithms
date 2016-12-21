@@ -245,9 +245,10 @@ public class AugmentAVLTree {
                 isSmaller = true;
             if (isSmaller)
                 return;
-            augment2(r.right,key);
-            r.augment += key;
-            augment2(r.left,key);
+            augment2(r.right, key);
+            if (r.key > key)
+                r.augment += key;
+            augment2(r.left, key);
         }
 
     }
@@ -284,7 +285,7 @@ public class AugmentAVLTree {
         return null;
     }
 
-    public void inorder() {
+    public void print() {
         inorder(root);
     }
 

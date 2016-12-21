@@ -177,15 +177,15 @@ public class AVLTree {
 
     }
 
-    public void inorder() {
-        inorder(root);
+    public void print() {
+        print(root);
     }
 
-    private void inorder(AVLNode r) {
+    private void print(AVLNode r) {
         if (r != null) {
-            inorder(r.left);
+            print(r.left);
             System.out.print(r.key + " ");
-            inorder(r.right);
+            print(r.right);
         }
     }
 
